@@ -232,6 +232,7 @@ public class SnowballProgram {
 		if (w.method == null) return w.result;
 		boolean res;
 		try {
+			w.method.setAccessible(true);
 		    Object resobj = w.method.invoke(w.methodobject,
 						    new Object[0]);
 		    res = resobj.toString().equals("true");
@@ -301,6 +302,7 @@ public class SnowballProgram {
 
 		boolean res;
 		try {
+			w.method.setAccessible(true);
 		    Object resobj = w.method.invoke(w.methodobject,
 						    new Object[0]);
 		    res = resobj.toString().equals("true");
