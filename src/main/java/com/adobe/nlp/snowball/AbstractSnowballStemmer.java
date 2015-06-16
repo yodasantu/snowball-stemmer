@@ -1,10 +1,14 @@
 
-package org.tartarus.snowball;
+package com.adobe.nlp.snowball;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class SnowballProgram {
-    protected SnowballProgram() {
+public abstract class AbstractSnowballStemmer implements ISnowballStemmer {
+
+    @Override
+    public abstract boolean stem();
+
+    public AbstractSnowballStemmer() {
         current = new StringBuffer();
         setCurrent("");
     }
@@ -12,6 +16,7 @@ public class SnowballProgram {
     /**
      * Set the current string.
      */
+    @Override
     public void setCurrent(String value) {
         current.replace(0, current.length(), value);
         cursor = 0;
@@ -24,6 +29,7 @@ public class SnowballProgram {
     /**
      * Get the current string.
      */
+    @Override
     public String getCurrent() {
         String result = current.toString();
         // Make a new StringBuffer.  If we reuse the old one, and a user of
@@ -45,7 +51,7 @@ public class SnowballProgram {
     protected int bra;
     protected int ket;
 
-    protected void copy_from(SnowballProgram other) {
+    protected void copy_from(AbstractSnowballStemmer other) {
         current = other.current;
         cursor = other.cursor;
         limit = other.limit;

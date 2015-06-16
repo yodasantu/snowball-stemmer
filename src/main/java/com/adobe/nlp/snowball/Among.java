@@ -1,4 +1,4 @@
-package org.tartarus.snowball;
+package com.adobe.nlp.snowball;
 
 import java.lang.reflect.Method;
 
@@ -14,7 +14,7 @@ public class Among {
     }
 
     public Among(String s, int substring_i, int result,
-                 String methodname, SnowballProgram methodobject) {
+                 String methodname, AbstractSnowballStemmer methodobject) {
         this.s_size = s.length();
         this.s = s.toCharArray();
         this.substring_i = substring_i;
@@ -37,5 +37,5 @@ public class Among {
     public final int substring_i; /* index to longest matching substring */
     public final int result; /* result of the lookup */
     public final Method method; /* method to use if substring matches */
-    public final SnowballProgram methodobject; /* object to invoke method on */
+    public final AbstractSnowballStemmer methodobject; /* object to invoke method on */
 }

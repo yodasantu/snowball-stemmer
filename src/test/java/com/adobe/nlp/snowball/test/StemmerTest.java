@@ -1,16 +1,16 @@
-package org.tartarus.snowball.test;
+package com.adobe.nlp.snowball.test;
 
+import com.adobe.nlp.snowball.ISnowballStemmer;
 import org.junit.Assert;
 import org.junit.Test;
-import org.tartarus.snowball.SnowballStemmer;
-import org.tartarus.snowball.ext.englishStemmer;
+import com.adobe.nlp.snowball.impl.EnglishStemmer;
 
 public class StemmerTest {
 
     @Test
     public void englishSanityCheck() {
 
-        SnowballStemmer snowballStemmer = new englishStemmer();
+        ISnowballStemmer snowballStemmer = new EnglishStemmer();
         snowballStemmer.setCurrent("Jumps");
         snowballStemmer.stem();
         String result = snowballStemmer.getCurrent();
