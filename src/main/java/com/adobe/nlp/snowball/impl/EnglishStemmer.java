@@ -1109,7 +1109,7 @@ public class EnglishStemmer extends AbstractSnowballStemmer {
     }
 
     @Override
-    public boolean stem() {
+    public synchronized boolean stem() {
         int v_1;
         int v_2;
         int v_3;

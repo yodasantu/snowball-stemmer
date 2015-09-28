@@ -3,13 +3,13 @@ import org.gradle.api.artifacts.maven.MavenDeployment
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven'
-apply plugin: 'signing'
+//apply plugin: 'signing'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-group = 'com.github.rholder'
-version = '1.5.6'
+group = 'com.adobe.tat'
+version = '1.5.8'
 ext.packaging = 'jar'
 
 repositories {
@@ -40,22 +40,22 @@ jar {
     manifest = defaultManifest()
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from 'build/docs/javadoc'
-    manifest = defaultManifest()
-}
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-    manifest = defaultManifest()
-}
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from 'build/docs/javadoc'
+//    manifest = defaultManifest()
+//}
+//
+//task sourcesJar(type: Jar) {
+//    classifier = 'sources'
+//    from sourceSets.main.allSource
+//    manifest = defaultManifest()
+//}
 
 artifacts {
     archives jar
-    archives javadocJar
-    archives sourcesJar
+//    archives javadocJar
+//    archives sourcesJar
 }
 
 uploadArchives {
@@ -71,26 +71,6 @@ uploadArchives {
 
                 pom.project {
                     name 'snowball-stemmer'
-                    description "This is the Java version of Snowball, a small string processing language designed for creating stemming algorithms for use in Information Retrieval."
-                    url 'http://snowball.tartarus.org/'
-                    licenses {
-                        license {
-                            name 'BSD License'
-                            url 'http://www.opensource.org/licenses/bsd-license.html '
-                            distribution 'repo'
-                        }
-                    }
-                    scm {
-                        url 'scm:https://github.com/rholder/snowball-stemmer.git'
-                        connection 'scm:git@github.com:rholder/snowball-stemmer.git'
-                        developerConnection 'scm:git@github.com:rholder/snowball-stemmer.git'
-                    }
-                    developers {
-                        developer {
-                            id 'rholder'
-                            name 'Ray Holder'
-                        }
-                    }
                 }
             }
         }

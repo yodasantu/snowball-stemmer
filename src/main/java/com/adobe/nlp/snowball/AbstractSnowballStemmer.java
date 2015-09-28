@@ -6,7 +6,10 @@ import java.lang.reflect.InvocationTargetException;
 public abstract class AbstractSnowballStemmer implements ISnowballStemmer {
 
     @Override
-    public abstract boolean stem();
+    public synchronized boolean stem() {
+        //do nothing
+        return false;
+    }
 
     public AbstractSnowballStemmer() {
         current = new StringBuffer();
