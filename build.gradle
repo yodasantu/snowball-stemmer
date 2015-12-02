@@ -5,11 +5,11 @@ apply plugin: 'idea'
 apply plugin: 'maven'
 //apply plugin: 'signing'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 group = 'com.adobe.tat'
-version = '1.5.8'
+version = '1.5.9'
 ext.packaging = 'jar'
 
 repositories {
